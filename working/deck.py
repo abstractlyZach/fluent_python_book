@@ -1,16 +1,15 @@
 from collections import namedtuple
 
-Card = namedtuple('Card', ['rank', 'suit'])
+Card = namedtuple("Card", ["rank", "suit"])
+
 
 class FrenchDeck(object):
-    ranks = list(range(2, 10)) + list('TJQKA')
-    suits = 'spades diamonds clubs hearts'.split()
+    ranks = [str(n) for n in range(2, 10)] + list("TJQKA")
+    suits = "spades diamonds clubs hearts".split()
 
     def __init__(self):
         self._cards = [
-            Card(rank=rank, suit=suit)
-            for suit in self.suits
-            for rank in self.ranks
+            Card(rank=rank, suit=suit) for suit in self.suits for rank in self.ranks
         ]
 
     def __len__(self):
