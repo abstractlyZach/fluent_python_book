@@ -22,3 +22,13 @@ def test_can_use_reversed_on_deck(unshuffled_deck):
     ]
     for expected_card, actual_card in zip(expected_cards, reversed(unshuffled_deck)):
         assert expected_card == actual_card
+
+
+def test_deck_check_for_in_operator(unshuffled_deck):
+    card = deck.Card(suit="spades", rank="8")
+    assert card in unshuffled_deck
+
+
+def test_deck_card_not_in_deck(unshuffled_deck):
+    card = deck.Card(suit="spades", rank="beasts")
+    assert card not in unshuffled_deck
